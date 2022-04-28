@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Naturalidade</title>
+</head>
+<body>
+    <h1>sistema de validação de Naturalidade</h1>
+    Digite a sua naturalidade: <input type="text" name="NaturalidadeTxt" id="NaturalidadeTxt">
+    <input type="button" value="Verificar" onclick="Verifica()">
+    <div id="Resp">
+    <script>
+        function Verifica(){
+            var Nat = window.document.querySelector('input#NaturalidadeTxt')
+            var Resp = document.querySelector('div#Resp')
+            var N = Nat.value
+            
+            if (N != 'Brasileiro'){
+            Resp.innerHTML += '<p>Você é estrangeiro</p>'
+            }else{
+                Resp.innerHTML += '<p>Você é Brasileiro</p>'
+            }
+
+        }
+
+    </script>
+    
+</body>
+</html
