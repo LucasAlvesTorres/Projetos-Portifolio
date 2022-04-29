@@ -1,40 +1,55 @@
-*{
+* {
     box-sizing: border-box;
 }
-body{
+
+body {
     margin: 0;
 }
-.Screen{
-display: flex;
-height: 100vh;
+
+.Screen {
+    display: flex;
+    height: 100vh;
 
 }
-.LeftSide{
+
+.LeftSide {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
-.LeftSide img{
+
+.LeftSide img {
     max-width: 400px;
     height: auto;
 }
-.RightSide{
+
+.RightSide {
     width: 400px;
     background-color: #ddd;
     padding: 50px;
 
 }
-.RightSide label{
+
+.RightSide label {
     display: block;
     margin-bottom: 20px;
 }
-.RightSide input{
+
+.RightSide input {
     width: 100%;
     border: 1px solid #999;
     border-radius: 5px;
     padding: 8px;
     font-size: 14px;
     outline: 0;
+}
+
+.error {
+    font-size: 12px;
+    background-color: #FF0000;
+    color: #FFF;
+    padding: 4px;
+    border-radius: 5px;
 }

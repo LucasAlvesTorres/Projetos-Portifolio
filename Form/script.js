@@ -5,12 +5,15 @@ let validator = {
 
         let inputs = form.querySelectorAll('input');
 
+        validator.clearErrors();
+
+
         for (let i = 0; i < inputs.length; i++) {
             let input = inputs[i];
             let check = validator.checkInput(input);
             if (check !== true) {
                 send = false;
-                console.log(check);
+                validator.showError(input, check);
 
             }
         }
@@ -19,6 +22,7 @@ let validator = {
             form.submit();
         }
     },
+
     checkInput: (input) => {
         let rules = input.getAttribute('data-rules');
         if (rules !== null) {
@@ -33,7 +37,18 @@ let validator = {
                         }
                         break;
                     case 'min':
+                        if (input.value.length < rDetais[1]) {
+                            return 'Campo tem que ter pelo menos ' + rDetais[1] + ' digitos';
+                        }
+                        break;
+                    case 'email':
+                        if (input.value !== '') {
+                            let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+                            if (!regex.test(input.value.toLowerCase())) {
+                                return 'e-mail digitado inválido!'
 
+                            }
+                        }
                         break;
                 }
 
@@ -41,8 +56,33 @@ let validator = {
 
         }
         return true;
+    },
 
-    }
+    showError: (input, error) => {
+        input.style.borderColor = '#FF0000';
+
+        let errorElement = document.createElement('div');
+        errorElement.classList.add('error');
+        errorElement.innerHTML = error;
+
+        input.parentElement.insertBefore(errorElement, input.ElementSibling);
+
+    },
+
+    clearErrors: () => {
+        let inputs = form.querySelectorAll('input');
+        for (i = 0; i < inputs.length; i++) {
+            inputs[i].style = '';
+        }
+
+        let errorElements = document.querySelectorAll('.error');
+        for (i = 0; i < errorElements.length; i++) {
+            errorElements[i].remove();
+            console.log('entrou');
+
+        }
+
+    },
 };
 
 

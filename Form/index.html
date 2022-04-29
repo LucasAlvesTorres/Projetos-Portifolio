@@ -20,22 +20,22 @@
             <form method="POST" class="validator">
                 <label>
                     seu nome:<br />
-                    <input type="text" name="name" data-rules="required" />
+                    <input type="text" name="name" data-rules="required|min=2" />
                 </label>
                 <br />
                 <label>
                     seu e-mail:<br />
-                    <input type="text" name="email" />
+                    <input type="text" name="email" data-rules="required|email" />
                 </label>
                 <br />
                 <label>
                     sua senha:<br />
-                    <input type="password" name="password" />
+                    <input type="password" name="password" data-rules="required|min=4 />
                 </label>
                 <br />
                 <label>
 
-                    <input type="submit" name="Cadastrar" value="Cadastrar" />
+                    <input type=" submit" name="Cadastrar" value="Cadastrar" />
                 </label>
             </form>
             <div>
